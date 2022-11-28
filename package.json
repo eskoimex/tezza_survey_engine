@@ -1,0 +1,43 @@
+{
+  "name": "tezza_survey_engine",
+  "version": "1.0.0",
+  "description": "Tezza Survey Engine",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eskoimex/tezza_survey_engine.git"
+  },
+  "keywords": [
+    "survey",
+    "analytics"
+  ],
+  "author": "Samuel Ime",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eskoimex/tezza_survey_engine/issues"
+  },
+  "homepage": "https://github.com/eskoimex/tezza_survey_engine#readme",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "axios": "^1.2.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.3",
+    "nodemon": "^2.0.20",
+    "random-string": "^0.2.0",
+    "uuidv4": "^6.2.13"
+  }
+}
