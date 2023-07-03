@@ -18,12 +18,11 @@ const signUpUser = async (req, res, next) => {
 
   try {
 
-console.log(req.body.roles) 
    const user = new User({
       fullname: req.body.fullname,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8),
-      role: "Admin",
+      role: "admin",
       companyId: randomString({length: 16, special: false})
     });
     user.save((err, user) => {
@@ -38,7 +37,14 @@ console.log(req.body.roles)
 
               User.findOneAndUpdate({ _id: _id }, { $set: {token: token} })
               .then( async ()=>{
-                 
+
+                   message = {
+                      data: {
+                            user: user
+                      },
+                    };
+      
+              handleResSuccess(res, res.statusCode, "SignUp successful" , message);
             }).catch(error=> {
                    let err = `Error : ${error}`;
                     handleResError(res, 30, err);      
@@ -75,7 +81,7 @@ try{
          return;
       }
       let password = user.password
-      console.log(password)
+      //console.log(password)
       if (password == undefined) {
           err = "Password not found."
           handleResError(res, 30, err);
@@ -97,17 +103,27 @@ try{
         expiresIn: 86400 // 24 hours
       });
     
-      message = {
-        data: {
-              id: user._id,
-              username: user.username,
-              email: user.email,
-              accessToken: token
-        },
-      };
-      
-    handleResSuccess(res, res.statusCode, "Login successful" , message);
-    });
+    //   message = {
+    //     data: {
+    //           id: user._id,
+    //           username: user.username,
+    //           email: user.email,
+    //           accessToken: token,
+
+    //   };
+    // }
+    // handleResSuccess(res, res.statusCode, "Login successful" , message);
+    
+    res.json({ 
+      "message":"Login successful",
+      "user": user,
+      "token": token, 
+      // "token_expiration_date":exp*1000,
+      "status_code": res.statusCode
+  })
+
+})
+
   } catch (error) {
     err = {
       message: `Error: ${error}`,

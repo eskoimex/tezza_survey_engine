@@ -38,12 +38,7 @@ app.get("/", (req, res) => {
 
 // routes
 require('./app/routes/auth.routes')(app);
-// require('./app/routes/authorization.routes')(app);
-// require('./app/routes/user.routes')(app);
-// require('./app/routes/recommendation.routes')(app);
-// require('./app/routes/category.routes')(app);
-// require('./app/routes/subCategory.routes')(app);
-// require('./app/routes/content.routes')(app);
+require('./app/routes/survey.routes')(app);
 
 
 app.listen(process.env.PORT, () => {

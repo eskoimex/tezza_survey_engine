@@ -36,6 +36,7 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.4",
     "mongoose": "^6.7.3",
+    "nanoid": "^4.0.0",
     "nodemon": "^2.0.20",
     "random-string": "^0.2.0",
     "uuidv4": "^6.2.13"
