@@ -12,10 +12,23 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 //set up cors
-let corsOptions = {
-  origin: true
+// let corsOptions = {
+//   origin: true
+// };
+// app.use(cors(corsOptions));
+
+
+// CORS options
+const corsOptions = {
+  origin: 'http://localhost:3000', // Replace with your frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  credentials: true, // Enable credentials (cookies, authorization headers, etc.)
+  optionsSuccessStatus: 204 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 };
+
+// Use CORS middleware with options
 app.use(cors(corsOptions));
+
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));

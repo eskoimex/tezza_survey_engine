@@ -1,7 +1,7 @@
 const dotenv = require("dotenv")
 dotenv.config()
 
-const db = require("../models");
+const db = require("../models");     
 
 const connectDB = async ()=>{
     try{
